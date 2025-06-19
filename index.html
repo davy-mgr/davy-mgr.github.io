@@ -1,16 +1,85 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TV Show Search</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Davy Mugire - Resume</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container">
-    <h1>TV Show Search</h1>
-    <input type="text" id="searchInput" placeholder="Search for a TV show...">
-    <button id="searchButton">Search</button>
-    <div id="results"></div>
-</div>
+<header>
+    <h1>Davy Mugire</h1>
+    <p>Kigali, Rwanda | +250792957665 | <a href="mailto:davomugemail4@gmail.com">davomugemail4@gmail.com</a></p>
+    <button id="darkToggle">Toggle Dark Mode</button>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill">
+            <label>Videography / Editing</label>
+            <div class="progress"><div class="bar" data-skill="85"></div></div>
+        </div>
+        <div class="skill">
+            <label>Leadership</label>
+            <div class="progress"><div class="bar" data-skill="75"></div></div>
+        </div>
+        <div class="skill">
+            <label>Python Programming</label>
+            <div class="progress"><div class="bar" data-skill="80"></div></div>
+        </div>
+        <div class="skill">
+            <label>Front-End Web Development</label>
+            <div class="progress"><div class="bar" data-skill="70"></div></div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <h3>The Golden Path, Remera — Cashier</h3>
+        <p>July 2022 – June 2024</p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li><strong>Swiss International Scientific School, Dubai</strong> — High School (2017–2021)</li>
+            <li><strong>Nu-Vision High School, Kigali</strong> — High School (2021–2023)</li>
+            <li><strong>School Name, Location</strong> — Bachelor's Degree (2024–Present)</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="5" maxlength="500" required></textarea>
+            <p><span id="charCount">0</span>/500 characters</p>
+
+            <button type="submit">Send</button>
+        </form>
+        <p id="formMessage" class="hidden">Thank you! Your message has been sent.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Davy Mugire. All rights reserved.</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
