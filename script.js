@@ -1,47 +1,36 @@
-document.getElementById("searchButton").addEventListener("click", searchShows);
+// Dark Mode Toggle
+document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
 
-async function searchShows() {
-    const query = document.getElementById("searchInput").value.trim();
-    const resultsDiv = document.getElementById("results");
-    resultsDiv.innerHTML = "";
-
-    if (query === "") {
-        resultsDiv.innerHTML = "<p>Please enter a search term.</p>";
-        return;
-    }
-
-    const URL = `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(query)}`;
-
-    try {
-        const response = await fetch(URL);
-        const data = await response.json();
-
-        if (data.length === 0) {
-            resultsDiv.innerHTML = "<p>No shows found.</p>";
-            return;
+// Skill Bar Animation on Scroll
+const skillBars = document.querySelectorAll('.bar');
+window.addEventListener('scroll', () => {
+    skillBars.forEach(bar => {
+        const section = bar.closest('#skills');
+        const top = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (top < windowHeight - 100) {
+            bar.style.width = bar.dataset.skill + '%';
         }
+    });
+});
 
-        data.forEach(result => {
-            const show = result.show;
-            const showDiv = document.createElement("div");
-            showDiv.className = "show";
+// Form Submission
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-            const title = document.createElement("h2");
-            title.textContent = show.name;
-
-            const summary = document.createElement("div");
-            summary.innerHTML = show.summary || "<em>No summary available.</em>";
-
-            const genres = document.createElement("p");
-            genres.textContent = "Genres: " + (show.genres.length ? show.genres.join(", ") : "N/A");
-
-            showDiv.appendChild(title);
-            showDiv.appendChild(summary);
-            showDiv.appendChild(genres);
-            resultsDiv.appendChild(showDiv);
-        });
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        resultsDiv.innerHTML = "<p>Something went wrong. Please try again later.</p>";
+    if (name && email && message) {
+        document.getElementById("formMessage").classList.remove("hidden");
+        this.reset();
+        document.getElementById("charCount").textContent = "0";
     }
-}
+});
+
+// Character Counter
+document.getElementById("message").addEventListener("input", function () {
+    document.getElementById("charCount").textContent = this.value.length;
+});
