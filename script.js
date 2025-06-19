@@ -1,9 +1,7 @@
-// Dark Mode Toggle
 document.getElementById('darkToggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-// Skill Bar Animation on Scroll
 const skillBars = document.querySelectorAll('.bar');
 window.addEventListener('scroll', () => {
     skillBars.forEach(bar => {
@@ -16,7 +14,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Form Submission
 document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
@@ -30,7 +27,6 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     }
 });
 
-// Character Counter
 document.getElementById("message").addEventListener("input", function () {
     document.getElementById("charCount").textContent = this.value.length;
 });
